@@ -1,10 +1,9 @@
-import React  from 'react';
-import { Logo } from './components';
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import { NavBar } from './components';
 
 function App() {
-  return(
-    "hi"
-  )
+  return <NavBar />;
 }
 
 export default App;
