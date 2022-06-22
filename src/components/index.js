@@ -1,3 +1,4 @@
-import { Logo } from "./UI";
+import NavBar from './NavBar/NavBar';
+import { Logo } from './UI';
 
-export { Logo };
+export { Logo, NavBar };
