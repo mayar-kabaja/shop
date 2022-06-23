@@ -26,4 +26,18 @@ code {
 }
 .ant-slider-handle.ant-tooltip-open , .ant-slider-handle{
   border-color: #000 !important;
+
+}
+.ant-layout , .ant-layout-header , .ant-slider-rail{
+  background-color: #fff !important;
+
+}
+.ant-layout-sider {
+  background-color: #F3F7F8 !important;
+  padding: 1%;
+
+}
+.ant-layout-content{
+  margin-top: 20px;
+
 }
