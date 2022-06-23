@@ -14,7 +14,7 @@ function Filters() {
     console.log('onAfterChange: ', value);
   };
   return (
-    <Space wrap direction="vertical" size="middle" style={{ background: '#F3F7F8' }}>
+    <Space wrap direction="vertical" size="middle" style={{ position: 'fixed' }}>
       <Col span={24}>
         <Title level={4}>Categories</Title>
         <Radio.Group onChange={(e) => setCategory(e.target.value)} value={category} className="radio">
