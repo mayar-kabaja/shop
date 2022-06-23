@@ -10,25 +10,20 @@ const { Search } = Input;
 
 function NavBar() {
   return (
-    <div className="nav-bar">
-      <Row align="middle">
-        <Col span={6}>
-          <Logo />
-        </Col>
-        <Col align="middle" span={12}>
-          <Search
-            placeholder="Search"
-            allowClear
-          />
-        </Col>
-        <Col align="end" span={6}>
-          <Space size="middle">
-            <ShoppingCartOutlined style={{ fontSize: '30px', cursor: 'pointer' }} />
-            <LoginOutlined style={{ fontSize: '25px', cursor: 'pointer' }} />
-          </Space>
-        </Col>
-      </Row>
-    </div>
+    <Row>
+      <Col span={6} align="start">
+        <Logo />
+      </Col>
+      <Col span={10} style={{ display: 'flex', alignItems: 'center' }}>
+        <Search placeholder="Search" allowClear />
+      </Col>
+      <Col align="end" span={8}>
+        <Space size="middle">
+          <ShoppingCartOutlined style={{ fontSize: '30px', cursor: 'pointer' }} />
+          <LoginOutlined style={{ fontSize: '25px', cursor: 'pointer' }} />
+        </Space>
+      </Col>
+    </Row>
   );
 }
 
