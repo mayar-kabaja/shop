@@ -11,7 +11,19 @@ code {
     monospace;
 }
 .ant-input-affix-wrapper-focused   , .ant-input-affix-wrapper:focus , .ant-input-affix-wrapper:hover
-,.ant-btn:focus, .ant-btn:hover {
+,.ant-btn:focus {
   border-color: #d9d9d9 !important;
   box-shadow: none !important;
+}
+
+.ant-radio-checked .ant-radio-inner{
+  border-color: #000 !important;
+  box-shadow: none !important;
+
+}
+.ant-radio-inner:after , .ant-slider-track{
+  background-color: #000 !important;
+}
+.ant-slider-handle.ant-tooltip-open , .ant-slider-handle{
+  border-color: #000 !important;
 }
