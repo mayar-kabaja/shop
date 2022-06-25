@@ -13,7 +13,7 @@ const { Title } = Typography;
 const { Header, Sider, Content } = Layout;
 function Home() {
   const dispatch = useDispatch();
-  const { filterProducts, loading } = useSelector((store) => store.products);
+  const { filterProducts, isLoading } = useSelector((store) => store.products);
   useEffect(() => {
     dispatch(getProducts());
   }, []);
@@ -28,7 +28,7 @@ function Home() {
         </Sider>
         <Content>
           <Row justify="space-around" wrap>
-            {!loading
+            {!isLoading
               ? (filterProducts.length ? filterProducts.map(({
                 title, description, price, images, id,
               }) => (

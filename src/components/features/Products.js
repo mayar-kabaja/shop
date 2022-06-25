@@ -18,12 +18,11 @@ const productsSlice = createSlice({
     products: [],
     filterProducts: [],
     filters: {},
-    loading: false,
+    isLoading: false,
   },
 
   reducers: {
     filterProducts: (state, action) => {
-      console.log(action.payload);
       const { category: filterCategory, price: filterPrice, word = '' } = action.payload;
       return {
         ...state,
