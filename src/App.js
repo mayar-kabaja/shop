@@ -1,9 +1,13 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { NavBar } from './components';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from './pages';
 
 function App() {
-  return <NavBar />;
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
+  );
 }
 
 export default App;

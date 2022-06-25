@@ -9,7 +9,7 @@ const { Meta } = CardAnt;
 const { Title } = Typography;
 
 function Card({
-  title, rating, price, image, id, loading,
+  title, price, image, id, loading,
 }) {
   return (
     <CardAnt
@@ -19,7 +19,7 @@ function Card({
         width: 240,
         marginBottom: 30,
       }}
-      cover={<img alt="example" src={image} style={{ width: '95%', height: '250px' }} />}
+      cover={<img alt="product" src={image} style={{ width: '95%', height: '250px' }} />}
     >
       <Title level={5}>
         {price}
@@ -27,7 +27,7 @@ function Card({
       </Title>
       <Meta title={title} key={id} />
       <Space align="center" size="large">
-        <Rate allowHalf defaultValue={rating} />
+        <Rate allowHalf defaultValue={2.5} />
         <ShoppingCartOutlined style={{ fontSize: '25px', cursor: 'pointer', display: 'block' }} />
       </Space>
     </CardAnt>
@@ -35,10 +35,9 @@ function Card({
 }
 export default Card;
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  loading: PropTypes.bool.isRequired,
+  title: PropTypes.string,
+  price: PropTypes.number,
+  image: PropTypes.string,
+  id: PropTypes.number,
+  loading: PropTypes.bool,
 };

@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { Layout, Row, Col } from 'antd';
+/* eslint-disable no-unused-expressions */
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  Card, Filters, NavBar,
-} from '../../components';
+  Layout, Row, Col, Typography,
+} from 'antd';
+import { Card, Filters, NavBar } from '../../components';
 import './Home.css';
+import { getProducts } from '../../components/features/Products';
+
+const { Title } = Typography;
 
 const { Header, Sider, Content } = Layout;
-
 function Home() {
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  const { filterProducts, isLoading } = useSelector((store) => store.products);
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((json) => setData(json));
-  });
+    dispatch(getProducts());
+  }, []);
   return (
     <Layout>
       <Header className="header">
@@ -24,22 +27,29 @@ function Home() {
           <Filters />
         </Sider>
         <Content>
-          <Row wrap justify="space-around">
-            {data.map(({
-              title, rating, description, price, image, id,
-            }) => (
-              <Col>
-                <Card
-                  title={title}
-                  rating={rating.rate}
-                  description={description}
-                  id={id}
-                  price={price}
-                  image={image}
-                  loading={false}
-                />
-              </Col>
-            ))}
+          <Row justify="space-around" wrap>
+            {!isLoading
+              ? (filterProducts.length ? filterProducts.map(({
+                title, description, price, images, id,
+              }) => (
+                <Col>
+                  <Card
+                    title={title}
+                    description={description}
+                    id={id}
+                    price={price}
+                    image={images[0]}
+                    loading={false}
+                  />
+                </Col>
+              )) : <Col span={12} style={{ height: '500px' }}><Title level={4}>NO RESULTS</Title></Col>)
+              : Array.from({
+                length: 12,
+              }).map(() => (
+                <Col>
+                  <Card loading />
+                </Col>
+              ))}
           </Row>
         </Content>
       </Layout>
